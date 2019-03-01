@@ -10,9 +10,9 @@
 using namespace std;
 
 int main(int argc, char** argv ) {
-    long long t1, t2, freq;
+    long long t1, t2, freq,k=0;
 	string str;
-	
+	int i;
 	//if (argc == 1) 
     //{
     //    cerr << "Error: need text file\n";
@@ -24,12 +24,12 @@ int main(int argc, char** argv ) {
 	ifstream f("a.txt");
 	
     QueryPerformanceFrequency((LARGE_INTEGER *)&freq);// запрашиваем число тиков в 1 сек
-
-
 	QueryPerformanceCounter((LARGE_INTEGER *)&t1);// смотрим время после окончания цикла
-	getline(f, str);
+	while(!f.eof()){
+		k++;
+		getline(f, str);
+	}
 	QueryPerformanceCounter((LARGE_INTEGER *)&t2);// смотрим время после окончания цикла
-
-	cout << str << "\n Time spent:" << (t2-t1)/(1.*freq);
+	cout << "\n Time spent:" << fixed << (t2-t1)/(1.*freq)<<endl<<"Stroki:"<<k;
 	return 0;
 }
