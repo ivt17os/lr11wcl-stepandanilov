@@ -23,7 +23,7 @@ int main(int argc, char** argv ) {
 	
 	
 	
-	HANDLE f= CreateFile(L"a.txt",0,0,0,OPEN_EXISTING,0,0);
+	HANDLE f= CreateFile(L"a.txt",GENERIC_READ,FILE_SHARE_READ,0,OPEN_EXISTING,0,0);
 
     QueryPerformanceFrequency((LARGE_INTEGER *)&freq);// запрашиваем число тиков в 1 сек
 	QueryPerformanceCounter((LARGE_INTEGER *)&t1);// смотрим время после окончания цикла
